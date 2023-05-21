@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>ali jahangiry</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="/src/styles.css" />
+    <style>
+      input{
+        display: block;
+        padding: 8px 20px;
+        border:3px solid rgb(105, 39, 118);
+        border-radius: 5px;
+        margin-bottom: 10px;
+      }
+  label{
+    font-size: 25px;
+  }
+  button{
+    padding: 15px 100px;
+    background-color: #9c12f8;
+    border-radius: 10px;
+  
+  }
+  .radio{
+    display: inline;
+  }
+  p{
+    font-size: 25px;
+  }
+  .row{
+    display: flex;
+    justify-content: space-evenly;
+  }
+    </style>
+  </head>
+  <body>
+    <section>
+
+      <form>
+        <div class="row">
+
+          <div class="row1">
+            <div>
+              <label for="">نام خودرا وارد کنید</label>
+              <input type="text" />
+            </div>
+
+            <div>
+              <label for="">نام خانوادگی خود را وارد کنید </label>
+              <input type="text" />
+            </div>
+
+            <div>
+              <label for="email">ایمیل خود را وارد کنید</label>
+              <input type="email" id="email" />
+            </div>
+
+            <div>
+              <label for="date">تاریخ تولد</label>
+              <input type="date" id="date">
+              <!-- <button type="submit" onclick="verify()">submit</button> -->
+            </div>
+    
+            <div>
+              <label for="Number">شماره  شناسنامه ی خود را وارد کنید</label>
+              <input type="tel" id="number"minlength="10" maxlength="10"/>
+             
+    
+            </div>
+     
+            <div>
+              <label for="password">پسورد خود را وارد کنید</label>
+              <input type="password" id="password" minlength="3"/>
+              
+            </div>
+    
+            <div>
+              <label for="tel">شماره تماس خود را وارد کنید</label>
+              <input type="tel" id="tel" minlength="11" maxlength="11" />
+            </div>
+          </div>
+          
+          <div class="row2">
+  
+            <p>وضعیت تاهل</p>
+             <div>
+              <label for="rename">متاهل</label>
+              <input class="radio" type="radio" id="radio" name="rename"/>
+    
+            </div>
+            <div>
+               <label for="rename">مجرد</label>
+              <input class="radio" type="radio" id="radio" name="rename" />
+            </div>
+    
+            <div>
+              <textarea  minlength="5">آدرس محل زندگی</textarea>
+            </div>
+    
+            <div>
+              <label for="number">درامد ماهیانه</label>
+              <input type="number" min="0" max="10"/>
+            </div>
+    
+             <div>
+              <label for="">مدارک خود را ارسال کنید</label>
+              <input type="file">
+            </div>
+          </div>
+        </div>
+
+
+        
+        <center>
+          <button onclick="checkAge()">ثبت</button>
+
+        </center>
+        <p id="result"></p>
+      </form>
+      
+
+      
+      <script>
+        function checkAge() {
+         var date = new Date(document.getElementById("date").value);
+         var today = new Date();
+         var age = today.getFullYear() - date.getFullYear();
+         var monthDiff = today.getMonth() - date.getMonth();
+         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < date.getDate())) {
+          age--;
+         }
+         if (age < 18) {
+          document.getElementById("result").innerHTML = "شما به سن قانونی نرسیده اید.";
+          alert(innerHTML="شما به سن قانونی نرسیده اید.")
+         } else {
+          document.getElementById("result").innerHTML = "شما به سن قانونی رسیده اید.";
+          alert(innerHTML="شما به سن قانونی رسیده اید.")
+         }
+        }
+      </script>
+  </body>
+</html>
